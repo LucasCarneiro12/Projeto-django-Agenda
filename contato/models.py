@@ -21,7 +21,7 @@ class Contato(models.Model):
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=254, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
-    descripion = models.TextField(blank=True)
+    descripion = models.TextField(blank=True, verbose_name='description')
     show = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
