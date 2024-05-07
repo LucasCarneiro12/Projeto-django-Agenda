@@ -11,6 +11,11 @@ urlpatterns = [
     # CRUD
     path('contato/<int:contato_id>/detail/', views.contato, name='contato'),
     path('contato/create/', views.create, name='create'),
-#    path('contato/<int:contato_id>/update/', views.contato, name='contato'),
-#    path('contato/<int:contato_id>/delete/', views.contato, name='contato'),
+    path('contato/<int:contato_id>/update/', views.update, name='update'),
+    path('contato/<int:contato_id>/delete/', views.delete, name='delete'),
+
+    # user c
+    path('user/create', views.register, name='register'),
 ]
+
+

@@ -1,7 +1,7 @@
 
 <header class='header'>
     <h1 class="header-heading">
-        <a href="http://127.0.0.1:8000/" class="header-link">
+        <a href="{% url "contato:index" %}" class="header-link">
         Agenda
     </a>
     </h1>
@@ -9,8 +9,8 @@
     <nav class="menu">
         <ul class="menu-list">
             <li class="menu-item">
-                <a href="" class="menu-link">
-                    link1
+                <a href="{% url "contato:create" %}" class="menu-link">
+                    Criar
                 </a>
             </li>
             <li class="menu-item">

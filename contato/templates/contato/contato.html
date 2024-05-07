@@ -8,8 +8,29 @@
 
     <p><b>ID:</b> {{ contato.id}}</p>
     <p><b>E-mail:</b> {{ contato.email }}</p>
-    <p><b>Phone:</b> {{ contato.phone }}</p>
-    <p><b>Description:</b> {{ contato.descripion }}</p>
-    <p><b>Category:</b> {{ contato.category }}</p>
+    <p><b>Telefone:</b> {{ contato.phone }}</p>
+    <p><b>Descrição:</b> {{ contato.descripion }}</p>
+    <p><b>Categoria:</b> {{ contato.category }}</p>
+
+    {% if contato.picture %}
+      <p>
+        <img src="{{ contato.picture.url }}" alt="{{ contato.first_name }} {{ contato.last_name0 }}">
+      </p>
+    {% endif %}
+    <div class="contact-links">
+      <a href="{% url "contato:update" contato.id %}">Atualizar</a>
+
+      <form action="{% url "contato:delete" contato.id %}" method="POST">
+        {% csrf_token %}
+
+        {% if confirmation == 'no' %}
+          <input type="hidden" name="confirmation" value='yes'>
+          <button class="btn btn-link btn-delete" type="submit">Confirmar deleção</button>
+        {% else %}
+          <button class="btn btn-link btn-delete" type="submit">Deletar</button>
+        {% endif %}
+       
+      </form>
+    </div>
   </div>
 {% endblock content %}
