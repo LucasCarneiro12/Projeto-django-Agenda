@@ -111,12 +111,14 @@
   }
   
   .responsive-table {
-    width: 100%;
+    width: 100% !important;
     overflow-x: auto;
+    
   }
   
   .contacts-table {
-    width: 100%;
+    width: 100% !important;
+    margin: auto;
     min-width: var(--table-min-width);
     border-collapse: collapse;
   }
