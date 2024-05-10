@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from contato.forms import RegisterForm, ResgisterUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     form = RegisterForm()
@@ -49,7 +50,7 @@ def login_view(request):
             'form': form
         }
     )
-
+@login_required(login_url='contato:login')
 def user_update(request):
      form = ResgisterUpdateForm(instance=request.user)
 
@@ -75,6 +76,7 @@ def user_update(request):
      form.save()
      return redirect('contato:user_update')
 
+@login_required(login_url='contato:login')
 def logout_view(request):
     auth.logout(request)
     return redirect('contato:login')

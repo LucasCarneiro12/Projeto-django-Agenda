@@ -336,7 +336,7 @@
   padding: 3rem;
   display: block;
   line-height: var(--small-font-size);
-  background-color: tomato;
+  background-color: rgb(73, 169, 233);
 }
 
 .btn-delete {
